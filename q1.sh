@@ -4,4 +4,4 @@
 grep -v '^[[:space:]]*$' quotes.txt
 
 # removing duplicate lines from file
-sort quotes.txt | uniq
+awk '!visited[$0]++' quotes.txt
