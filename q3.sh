@@ -13,6 +13,7 @@ cat test.txt | wc -l
 echo -n "Number of words in file =  "
 cat test.txt | wc -w 
 
+echo
 # number of words in each line in file
 
 i=1;
@@ -23,16 +24,14 @@ do
     i=$((i+1))
 done < test.txt
 
+echo
+
 # words repeated and count of repetition
 
-# sed -e 's/[^[:alpha:]]/ /g' test.txt | tr '\n' " " |  tr -s " " | tr " " '\n'| tr 'A-Z' 'a-z' | sort | uniq -c | sort -nr | while read repetition word
-# do
-#         if [ ${repetition} -gt 1 ]
-#         then
-#                 echo "Word: ${word}, Count of repetition: ${repetition}"
-#         fi
-# done
-
-# grep -o -i i test.txt | wc -l
-
-tr '[:space:]' '[\n*]' < test.txt | grep -i -c it
+sed -e 's/[^[:alpha:]]/ /g' test.txt | tr '\n' " " |  tr -s " " | tr " " '\n'| tr 'A-Z' 'a-z' | sort | uniq -c | sort -nr | while read repetition word
+do
+        if [ ${repetition} -gt 1 ]
+        then
+                echo "Word: ${word}, Count of repetition: ${repetition}"
+        fi
+done
