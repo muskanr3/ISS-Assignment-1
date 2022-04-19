@@ -14,6 +14,7 @@ echo -n "Number of words in file =  "
 cat test.txt | wc -w 
 
 echo
+
 # number of words in each line in file
 
 i=1;
